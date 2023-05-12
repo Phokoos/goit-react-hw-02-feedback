@@ -1,0 +1,24 @@
+.feedback__buttons {
+	margin-bottom: 10px;
+
+	display: flex;
+	gap: 20px;
+}
+
+.feedback__button {
+	width: 150px;
+	height: 50px;
+
+	font-size: 34px;
+	border-radius: 10px;
+	border: none;
+}
+
+.feedback__button:focus,
+.feedback__button:hover {
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.49);
+}
+
+.feedback__button:active {
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.49) inset;
+}
