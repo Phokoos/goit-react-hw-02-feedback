@@ -4,6 +4,7 @@ import { Component } from 'react';
 import FeedbackBtn from './buttons/buttons';
 import Statictics from './statictics/statictics';
 import Notification from './notification/notification';
+import Section from './section/section';
 
 // import Feedback from './feedback/feedback';
 
@@ -39,11 +40,14 @@ class App extends Component {
   render() {
     return (
       <div className={css.feedback__container}>
-        <h2 className={css.feedback__secondTitle}>Please leave feedback</h2>
-        <FeedbackBtn clickButton={this.clickButton} />
-        {this.countTotalFeedback() > 0 ? (
-          <div>
-            <h2 className={css.feedback__secondTitle}>Statictics</h2>
+        <Section title="Please leave feedback">
+          <FeedbackBtn
+            options={Object.keys(this.state)}
+            clickButton={this.clickButton}
+          />
+        </Section>
+        <Section title="Statictics">
+          {this.countTotalFeedback() > 0 ? (
             <Statictics
               good={this.state.good}
               neutral={this.state.neutral}
@@ -53,10 +57,10 @@ class App extends Component {
                 this.countPositiveFeedbackPercentage
               }
             />
-          </div>
-        ) : (
-          <Notification message={'There is no feedback'} />
-        )}
+          ) : (
+            <Notification message={'There is no feedback'} />
+          )}
+        </Section>
       </div>
     );
   }
